@@ -2,8 +2,19 @@
 const pullData = document.getElementById("fetchEvents");
 pullData.addEventListener("click", () => {
   const textbox = document.querySelector(".container");
+  const today = new Date();
+  let mm = today.getMonth()+1;
+  let dd = today.getDate();
+  if(dd<10) 
+  {
+    dd='0'+dd;
+  } 
+  if(mm<10) 
+  {
+    mm='0'+mm;
+  } 
 
-  fetch("https://en.wikipedia.org/api/rest_v1/feed/onthisday/events/08/26")
+  fetch(`https://en.wikipedia.org/api/rest_v1/feed/onthisday/all/${mm}/${dd}`)
     .then((data) => data.json())
     .then((data) => {
       data['events'].forEach(element => createMessage(element, textbox));
