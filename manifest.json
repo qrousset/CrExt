@@ -3,13 +3,8 @@
   "description": "Gather as much information as we can on today's date historical events",
   "version": "0.1",
   "manifest_version": 3,
-  "icons": {
-    "default_icon": {
-      "32": "/images/emojiRyan.png"
-    }
-  },
-  "popup": {
-    "service_worker": "popup.js"
+  "icons":{
+    "32":"/images/emojiRyan.png"
   },
   "permissions": ["storage", "activeTab", "scripting"],
    "action": {
