@@ -13,6 +13,6 @@ pullData.addEventListener("click", () => {
 function createMessage(message, body) {
   const newEvent = document.createElement("p");
   newEvent.className = "event";
-  newEvent.innerText = message.text;
+  newEvent.innerHTML = `<a target = "_blank" href=${message['pages']['0']['content_urls']['desktop']['page']}> ${message.year}: ${message.text} </a>`;
   body.appendChild(newEvent);
 }
