@@ -1,3 +1,7 @@
+body{
+  height: 400px;
+  width: 600px;
+}
 button {
   height: 30px;
   width: 30px;

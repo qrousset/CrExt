@@ -1,17 +1,11 @@
 // When the button is clicked, inject setPageBackgroundColor into current page
-changeColor.addEventListener("click", async () => {
-  let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+const pullData = document.getElementById('fetch Events')
+pullData.addEventListener("click", async () => {
 
-  chrome.scripting.executeScript({
-    target: { tabId: tab.id },
-    function: setPageBackgroundColor,
-  });
+  const textbox = document.querySelector('.main')
+  fetch('https://en.wikipedia.org/api/rest_v1/feed/onthisday/events/08/25')
+  .then((data) => data.json())
+  .then((data) => {
+    console.log(data)
+  })
 });
-
-// The body of this function will be executed as a content script inside the
-// current page
-function setPageBackgroundColor() {
-  chrome.storage.sync.get("color", ({ color }) => {
-    document.body.style.backgroundColor = color;
-  });
-}
